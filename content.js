@@ -1,13 +1,18 @@
 let video = "";
+let extent = '';
 chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
-    video = document.querySelector("video").src;
+
+    console.log(request)
+    if (request === 'image') { extent = '.jpg'; video = document.querySelectorAll(".KL4Bh img").src; }
+    else { extent = '.mp4'; video = document.querySelector("video").src; }
     if (!(video.match('blob') || video === "")) {
         const matches = window.location
         chrome.runtime.sendMessage({
             url: video,
-            count: matches
+            count: matches,
+            type: extent
         })
-        video="";
+        video = "";
     } else alert('Sorry Video cant be downloaded')
 })
 

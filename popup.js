@@ -11,11 +11,17 @@ document.addEventListener('DOMContentLoaded', function () {
 })
 
 document.querySelector('.load').addEventListener('click', load, false)
+document.querySelector('.loadImg').addEventListener('click', loadImg, false)
 
 
-function load() {
+function load(type) {
   chrome.tabs.query({ currentWindow: true, active: true }, function (tabs) {
-    chrome.tabs.sendMessage(tabs[0].id, 'hi')
+    chrome.tabs.sendMessage(tabs[0].id, 'video')
+  })
+}
+function loadImg() {
+  chrome.tabs.query({ currentWindow: true, active: true }, function (tabs) {
+    chrome.tabs.sendMessage(tabs[0].id, 'image')
   })
 }
 

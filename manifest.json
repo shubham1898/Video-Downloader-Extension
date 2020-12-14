@@ -1,7 +1,7 @@
 {
-    "name": "bear",
+    "name": "Video and Image Downloader",
     "version": "1.0",
-    
+    "description":"Download image and video from page easily. Works best with instagram and tiktok",
     "content_scripts": [
       {
         "matches": ["<all_urls>"],
@@ -9,7 +9,9 @@
       }
     ],
     "icons": {
-      "16": "16.png"
+      "16": "16x16.png",
+      "48":"48x48.png",
+      "128":"128x128.png"
     },
     "browser_action": {
       "default_popup":"popup.html",
